@@ -27,7 +27,7 @@ Options:
     --help                         Show this help message.
 
 Examples:
-    node createExpense.js --cost 22 --currency_code CAD --group_id 0 --user_id1 16073027 --paid_share1 22.00 --owed_share1 11.00 --user_id2 22088182 --paid_share2 0.00 --owed_share2 11.00 --description "Test" --category_id 18 --date "2024-12-29"
+    node createExpense.js --cost 22 --currency_code CAD --group_id 0 --user_id1 87654321 --paid_share1 22.00 --owed_share1 11.00 --user_id2 12345678 --paid_share2 0.00 --owed_share2 11.00 --description "Test" --category_id 18 --date "2024-12-29"
 `);
     process.exit(0);
 }
