@@ -50,7 +50,7 @@ node fetchExpenses.js --friend_id <id> --limit <number>
 
 **Example:**
 ```bash
-node fetchExpenses.js --friend_id 22088182 --limit 25
+node fetchExpenses.js --friend_id 12345678 --limit 25
 ```
 
 **Response Example:**
@@ -86,11 +86,11 @@ node deleteExpense.js --id 3503931874
 -   If the expense is successfully deleted:
 
 ```
-Expense with ID 3503931874 seems to have already been deleted or the ID is incorrect.
+Expense with ID 1234567890 seems to have already been deleted or the ID is incorrect.
 ```
 -   If there are errors:
 ```
-Failed to delete expense with ID 3503931874: { "error": "Expense does not exist" }
+Failed to delete expense with ID 1234567890: { "error": "Expense does not exist" }
 ```
 
 ### 3. Create Expense
@@ -116,7 +116,7 @@ node createExpense.js [options]
 
 **Example:**
 ```bash
-node createExpense.js --cost 22 --currency_code CAD --group_id 0 --user_id1 16073027 --paid_share1 22.00 --owed_share1 11.00 --user_id2 22088182 --paid_share2 0.00 --owed_share2 11.00 --description "Test Expense" --category_id 18 --date "2024-12-29"
+node createExpense.js --cost 22 --currency_code CAD --group_id 0 --user_id1 87654321 --paid_share1 22.00 --owed_share1 11.00 --user_id2 12345678 --paid_share2 0.00 --owed_share2 11.00 --description "Test Expense" --category_id 18 --date "2024-12-29"
 ```
 **Response Example:**
 -   On success:
@@ -141,7 +141,7 @@ GET https://secure.splitwise.com/api/v3.0/get_friend/<id>
 ```json
 {
   "friend": {
-    "id": 22088182,
+    "id": 12345678,
     "first_name": "John"
   }
 }
