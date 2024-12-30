@@ -34,7 +34,7 @@ This repository contains a set of Node.js scripts to interact with the Splitwise
     - `SWDID`: Your SWDID cookie.
     - `SPLITWISE_SESSION`: Your Splitwise session cookie.
 
-## Scripts
+## API Scripts
 
 ### 1. Fetch Expenses
 Retrieve a list of expenses for a specific user or group.
@@ -43,16 +43,17 @@ Retrieve a list of expenses for a specific user or group.
 ```bash
 node fetchExpenses.js --friend_id <id> --limit <number>
 ```
-Options:
-	•	--friend_id <id>: The Splitwise friend ID (required).
-	•	--limit <number>: The maximum number of expenses to fetch (required).
+**Options:**
 
-Example:
+-   --friend_id <id>: The Splitwise friend ID (required).
+-   --limit <number>: The maximum number of expenses to fetch (required).
+
+**Example:**
 ```bash
 node fetchExpenses.js --friend_id 22088182 --limit 25
 ```
 
-Response Example:
+**Response Example:**
 
 ```json
 {
@@ -66,77 +67,76 @@ Response Example:
   ]
 }
 ```
-2. Delete Expense
+### 2. Delete Expense
 Delete an expense using its unique ID.
 
-Usage:
+**Usage:**
 ```bash
 node deleteExpense.js --id <expense_id>
 ```
-Options:
-	•	--id <expense_id>: The ID of the expense to delete (required).
+**Options:**
+-   --id <expense_id>: The ID of the expense to delete (required)
 
-Example:
+**Example:**
 ```bash
 node deleteExpense.js --id 3503931874
 ```
-Response Example:
-	•	If the expense is successfully deleted:
+
+**Response Example:**
+-   If the expense is successfully deleted:
 
 ```
 Expense with ID 3503931874 seems to have already been deleted or the ID is incorrect.
 ```
-	•	If there are errors:
-```json
+-   If there are errors:
+```
 Failed to delete expense with ID 3503931874: { "error": "Expense does not exist" }
 ```
-3. Create Expense
-Create a new expense with specified details.
-Usage:
 
+### 3. Create Expense
+Create a new expense with specified details.
+
+**Usage:**
 ```bash
 node createExpense.js [options]
 ```
-Options:
-	•	--cost <amount>: The total cost of the expense (required).
-	•	--currency_code <currency>: The currency code (e.g., USD, CAD) (required).
-	•	--group_id <group_id>: The group ID (use 0 for personal expenses) (required).
-	•	--user_id1 <id>: The first user’s ID (required).
-	•	--paid_share1 <amount>: The amount paid by the first user (required).
-	•	--owed_share1 <amount>: The amount owed by the first user (required).
-	•	--user_id2 <id>: The second user’s ID (required).
-	•	--paid_share2 <amount>: The amount paid by the second user (required).
-	•	--owed_share2 <amount>: The amount owed by the second user (required).
-	•	--description <text>: A description of the expense (required).
-	•	--category_id <id>: The category ID (optional).
-	•	--date <date_string>: The date of the expense (optional).
+**Options:**
+-   --cost <amount>: The total cost of the expense (required).
+-   --currency_code <currency>: The currency code (e.g., USD, CAD) (required).
+-   --group_id <group_id>: The group ID (use 0 for personal expenses) (required).
+-   --user_id1 <id>: The first user’s ID (required).
+-   --paid_share1 <amount>: The amount paid by the first user (required).
+-   --owed_share1 <amount>: The amount owed by the first user (required).
+-   --user_id2 <id>: The second user’s ID (required).
+-   --paid_share2 <amount>: The amount paid by the second user (required).
+-   --owed_share2 <amount>: The amount owed by the second user (required).
+-   --description <text>: A description of the expense (required).
+-   --category_id <id>: The category ID (optional).
+-   --date <date_string>: The date of the expense (optional).
 
-Example:
-
+**Example:**
 ```bash
 node createExpense.js --cost 22 --currency_code CAD --group_id 0 --user_id1 16073027 --paid_share1 22.00 --owed_share1 11.00 --user_id2 22088182 --paid_share2 0.00 --owed_share2 11.00 --description "Test Expense" --category_id 18 --date "2024-12-29"
 ```
-Response Example:
-	•	On success:
-
+**Response Example:**
+-   On success:
 ```
 Expense created successfully: { expense: { id: 123456, cost: 22, ... } }
 ```
-
-	•	On failure:
-```json
+-   On failure:
+```
 Failed to create expense: { "error": "Invalid user_id" }
 ```
 
-Additional Splitwise API Routes
+## Additional Splitwise API Routes
 
 These scripts cover only a subset of the Splitwise API. Splitwise provides many other routes and functionalities, such as:
-	•	Get Friend Details:
+-   Get Friend Details:
 ```bash
 GET https://secure.splitwise.com/api/v3.0/get_friend/<id>
 ```
 
-Example Response:
+**Example Response:**
 
 ```json
 {
@@ -146,43 +146,40 @@ Example Response:
   }
 }
 ```
-	•	Get Main Data:
-
+-   Get Main Data:
 ```bash
 GET https://secure.splitwise.com/api/v3.0/get_main_data
 ```
 
 Example Response:
-```json
+```
 {
   "groups": [...],
   "friends": [...]
 }
 ```
-
-	•	Get Metadata:
-
+-   Get Metadata:
 ```bash
 GET https://secure.splitwise.com/api/v4.0/metadata
 ```
 
-Example Response:
-
-```json
+**Example Response:**
+```
 {
   "categories": [...],
   "currencies": [...]
 }
 ```
-Notes
-	•	These scripts are designed to work with the current Splitwise API, but API changes may require updates.
-	•	The descriptions and options in these scripts are not exhaustive and may need adjustments for specific use cases.
 
-Disclaimer
+## Notes
+-   These scripts are designed to work with the current Splitwise API, but API changes may require updates.
+-   The descriptions and options in these scripts are not exhaustive and may need adjustments for specific use cases.
+
+## Disclaimer
 
 These scripts are not affiliated with or endorsed by Splitwise. Use them at your own discretion. Ensure that you comply with Splitwise’s terms of service and API usage guidelines.
 
-```
+
 ---
 
 **Creating the `.env.example` File**
@@ -190,10 +187,10 @@ These scripts are not affiliated with or endorsed by Splitwise. Use them at your
 To create the `.env.example` file, follow these steps:
 
 1. **Open VSCode:**
-   - Launch Visual Studio Code on your computer.
+-   Launch Visual Studio Code on your computer.
 
 2. **Navigate to Your Project Directory:**
-   - Use the **Explorer** sidebar to navigate to the root directory of your project.
+-   Use the **Explorer** sidebar to navigate to the root directory of your project.
 
 3. **Create a New File:**
    - Right-click within the Explorer sidebar.
@@ -250,4 +247,3 @@ To create the `.env.example` file, follow these steps:
 Feel free to copy the entire markdown content above and save it as `README.md` in your repository. Additionally, follow the instructions to create and configure your `.env.example` file properly.
 
 If you encounter any further issues, please let me know!
-```
