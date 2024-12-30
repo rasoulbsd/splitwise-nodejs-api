@@ -16,7 +16,7 @@ Options:
     --help                 Show this help message.
 
 Examples:
-    node deleteExpense.js --id 3503931874
+    node deleteExpense.js --id 1234567890
 `);
     process.exit(0);
 }

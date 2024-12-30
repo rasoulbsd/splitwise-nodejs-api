@@ -20,7 +20,7 @@ Options:
     --help                 Show this help message.
 
 Examples:
-    node fetchExpenses.js --friend_id 22088182 --limit 25
+    node fetchExpenses.js --friend_id 12345678 --limit 25
 `);
     process.exit(0);
 }
